@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ZoomerWithKeys/ZoomerWithKeys.iml" filepath="$PROJECT_DIR$/../ZoomerWithKeys/ZoomerWithKeys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidVNC.iml" filepath="$PROJECT_DIR$/androidVNC.iml" />
+    </modules>
+  </component>
+</project>
+

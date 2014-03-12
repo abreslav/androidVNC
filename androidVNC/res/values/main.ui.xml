@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="buttonGO" type="id"/>
+    <item name="spinnerConnection" type="id"/>
+    <item name="textNickname" type="id"/>
+    <item name="textPASSWORD" type="id"/>
+    <item name="checkboxKeepPassword" type="id"/>
+    <item name="textIP" type="id"/>
+    <item name="textPORT" type="id"/>
+    <item name="textUsername" type="id"/>
+    <item name="colorformat" type="id"/>
+    <item name="checkboxUseLocalCursor" type="id"/>
+    <item name="groupForceFullScreen" type="id"/>
+    <item name="radioForceFullScreenAuto" type="id"/>
+    <item name="radioForceFullScreenOn" type="id"/>
+    <item name="radioForceFullScreenOff" type="id"/>
+    <item name="buttonRepeater" type="id"/>
+    <item name="textRepeaterId" type="id"/>
+    <item name="buttonImportExport" type="id"/>
+</resources>
