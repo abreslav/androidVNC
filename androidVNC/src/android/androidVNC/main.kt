@@ -40,12 +40,12 @@ class SettingsUI(val act: android.app.Activity) {
                     }
                     horizontal {
                         buttonGO = button(text = "Connect") {
-                            layoutParams(FILL_PARENT, WRAP_CONTENT) {
+                            layoutParams {
                                 weight = 3.0f
                             }
                         }
                         spinnerConnection = spinner {
-                            viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT) {
+                            viewGroup.layoutParams {
                                 weight = 1.0f
                             }
                         }.viewGroup
@@ -58,17 +58,14 @@ class SettingsUI(val act: android.app.Activity) {
                         viewGroup.setPadding(10,10,10,10)
                         tableLayout {
                             viewGroup.setPadding(10,10,10,10)
-                            viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
                             tableRow {
                                 textView(text = "Nickname") {
                                     gravity = RIGHT or CENTER_VERTICAL
-                                    layoutParams(FILL_PARENT, WRAP_CONTENT){
-                                    }
                                     setPadding(0,0,10,0)
                                 }
                                 textNickname = editText {
                                     setSingleLine()
-                                    layoutParams(FILL_PARENT, WRAP_CONTENT) {
+                                    layoutParams {
                                         weight = 1.0f
                                     }
                                 }
@@ -81,7 +78,7 @@ class SettingsUI(val act: android.app.Activity) {
                                 textPASSWORD = editText {
                                     setSingleLine()
                                     setTransformationMethod(android.text.method.PasswordTransformationMethod.getInstance());
-                                    layoutParams(FILL_PARENT, WRAP_CONTENT){
+                                    layoutParams{
                                         weight = 3.0f
                                     }
                                 }
@@ -97,12 +94,11 @@ class SettingsUI(val act: android.app.Activity) {
                                 textView(text = "Address") {
                                     hint = "localhost"
                                     gravity = RIGHT or CENTER_VERTICAL
-                                    layoutParams(FILL_PARENT, WRAP_CONTENT)
                                     setPadding(0,0,10,0)
                                 }
                                 textIP = editText {
                                     setSingleLine()
-                                    layoutParams(FILL_PARENT, WRAP_CONTENT) {
+                                    layoutParams {
                                         weight = 1.0f
                                     }
                                 }
@@ -110,13 +106,13 @@ class SettingsUI(val act: android.app.Activity) {
                             tableRow {
                                 textView(text = "Port") {
                                     gravity = RIGHT or CENTER_VERTICAL
-                                    layoutParams(FILL_PARENT, WRAP_CONTENT)
+                                    layoutParams
                                     setPadding(0,0,10,0)
                                 }
                                 textPORT = editText {
                                     setText("5900")
                                     setSingleLine()
-                                    layoutParams(FILL_PARENT, WRAP_CONTENT){
+                                    layoutParams {
                                         weight = 1.0f
                                     }
                                 }
@@ -124,13 +120,12 @@ class SettingsUI(val act: android.app.Activity) {
                             tableRow {
                                 textView(text = "Username") {
                                     gravity = RIGHT or CENTER_VERTICAL
-                                    layoutParams(FILL_PARENT, WRAP_CONTENT)
                                     setPadding(0,0,10,0)
                                 }
                                 textUsername = editText {
                                     hint = "For windows auth"
                                     setSingleLine()
-                                    layoutParams(FILL_PARENT, WRAP_CONTENT){
+                                    layoutParams{
                                         weight = 1.0f
                                     }
                                 }
@@ -141,9 +136,7 @@ class SettingsUI(val act: android.app.Activity) {
                                 gravity = LEFT or CENTER_VERTICAL
                             }
                         }
-                        colorformat = spinner {
-                            viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
-                        }.viewGroup
+                        colorformat = spinner {}.viewGroup
                         checkboxUseLocalCursor = checkBox(text = "Local mouse pointer") {
                             gravity = LEFT or CENTER_VERTICAL
                             layoutParams(WRAP_CONTENT, WRAP_CONTENT)
@@ -154,9 +147,6 @@ class SettingsUI(val act: android.app.Activity) {
                                 layoutParams(WRAP_CONTENT, WRAP_CONTENT)
                             }
                             groupForceFullScreen = radioGroup {
-                                viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT) {
-//                                    orientation = HORIZONTAL
-                                }
                                 viewGroup.setOrientation(HORIZONTAL)
                                 radioForceFullScreenAuto = radioButton {
                                     setId(R.id.radioForceFullScreenAuto)
@@ -181,7 +171,6 @@ class SettingsUI(val act: android.app.Activity) {
                             }
                             textRepeaterId = textView(text = "No repeater") {
                                 gravity = LEFT or CENTER_VERTICAL
-                                layoutParams(FILL_PARENT, WRAP_CONTENT)
                             }
                         }
                         buttonImportExport = button(text = "Import/Export Settings") {

@@ -7,6 +7,7 @@ import android.widget.*
 import android.app.AlertDialog
 import android.widget.LinearLayout.LayoutParams
 import android.view.View 
+import android.view.ViewGroup.LayoutParams.*
 
 
 class _FragmentBreadCrumbs(viewGroup: android.app.FragmentBreadCrumbs, ctx: android.app.Activity): _Container<android.app.FragmentBreadCrumbs>(viewGroup, ctx) {
@@ -21,7 +22,7 @@ class _RelativeLayout(viewGroup: android.widget.RelativeLayout, ctx: android.app
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(w: Int, h: Int, init: android.widget.RelativeLayout.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(w: Int = FILL_PARENT, h: Int = WRAP_CONTENT, init: android.widget.RelativeLayout.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.RelativeLayout.LayoutParams(w, h)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -43,7 +44,7 @@ class _RelativeLayout(viewGroup: android.widget.RelativeLayout, ctx: android.app
 
 class _AbsoluteLayout(viewGroup: android.widget.AbsoluteLayout, ctx: android.app.Activity): _Container<android.widget.AbsoluteLayout>(viewGroup, ctx) {
 
-    fun android.view.View.layoutParams(width: Int, height: Int, x: Int, y: Int, init: android.widget.AbsoluteLayout.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, x: Int, y: Int, init: android.widget.AbsoluteLayout.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.AbsoluteLayout.LayoutParams(width, height, x, y)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -75,13 +76,13 @@ class _FrameLayout(viewGroup: android.widget.FrameLayout, ctx: android.app.Activ
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, init: android.widget.FrameLayout.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, init: android.widget.FrameLayout.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.FrameLayout.LayoutParams(width, height)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, gravity: Int, init: android.widget.FrameLayout.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, gravity: Int, init: android.widget.FrameLayout.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.FrameLayout.LayoutParams(width, height, gravity)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -109,13 +110,13 @@ class _LinearLayout(viewGroup: android.widget.LinearLayout, ctx: android.app.Act
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, init: android.widget.LinearLayout.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, init: android.widget.LinearLayout.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.LinearLayout.LayoutParams(width, height)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, weight: Float, init: android.widget.LinearLayout.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, weight: Float, init: android.widget.LinearLayout.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.LinearLayout.LayoutParams(width, height, weight)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -191,7 +192,7 @@ class _WebView(viewGroup: android.webkit.WebView, ctx: android.app.Activity): _C
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
         val lp = android.view.ViewGroup.LayoutParams(width, height)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -213,13 +214,13 @@ class _AppWidgetHostView(viewGroup: android.appwidget.AppWidgetHostView, ctx: an
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, init: android.widget.FrameLayout.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, init: android.widget.FrameLayout.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.FrameLayout.LayoutParams(width, height)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, gravity: Int, init: android.widget.FrameLayout.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, gravity: Int, init: android.widget.FrameLayout.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.FrameLayout.LayoutParams(width, height, gravity)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -255,7 +256,7 @@ class _HorizontalScrollView(viewGroup: android.widget.HorizontalScrollView, ctx:
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
         val lp = android.view.ViewGroup.LayoutParams(width, height)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -277,7 +278,7 @@ class _ScrollView(viewGroup: android.widget.ScrollView, ctx: android.app.Activit
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
         val lp = android.view.ViewGroup.LayoutParams(width, height)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -311,7 +312,7 @@ class _ViewAnimator(viewGroup: android.widget.ViewAnimator, ctx: android.app.Act
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
         val lp = android.view.ViewGroup.LayoutParams(width, height)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -337,13 +338,13 @@ class _TableLayout(viewGroup: android.widget.TableLayout, ctx: android.app.Activ
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(w: Int, h: Int, init: android.widget.TableLayout.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(w: Int = FILL_PARENT, h: Int = WRAP_CONTENT, init: android.widget.TableLayout.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.TableLayout.LayoutParams(w, h)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(w: Int, h: Int, initWeight: Float, init: android.widget.TableLayout.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(w: Int = FILL_PARENT, h: Int = WRAP_CONTENT, initWeight: Float, init: android.widget.TableLayout.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.TableLayout.LayoutParams(w, h, initWeight)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -377,23 +378,23 @@ class _TableRow(viewGroup: android.widget.TableRow, ctx: android.app.Activity): 
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(w: Int, h: Int, init: android.widget.TableRow.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(w: Int = FILL_PARENT, h: Int = WRAP_CONTENT, init: android.widget.TableRow.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.TableRow.LayoutParams(w, h)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(w: Int, h: Int, initWeight: Float, init: android.widget.TableRow.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(w: Int = FILL_PARENT, h: Int = WRAP_CONTENT, initWeight: Float, init: android.widget.TableRow.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.TableRow.LayoutParams(w, h, initWeight)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams( init: android.widget.TableRow.LayoutParams.() -> Unit = { }) {
-        val lp = android.widget.TableRow.LayoutParams()
-        lp.init()
-        this@layoutParams.setLayoutParams(lp)
-    }
+//    fun android.view.View.layoutParams( init: android.widget.TableRow.LayoutParams.() -> Unit = { }) {
+//        val lp = android.widget.TableRow.LayoutParams()
+//        lp.init()
+//        this@layoutParams.setLayoutParams(lp)
+//    }
 
     fun android.view.View.layoutParams(column: Int, init: android.widget.TableRow.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.TableRow.LayoutParams(column)
@@ -431,13 +432,13 @@ class _RadioGroup(viewGroup: android.widget.RadioGroup, ctx: android.app.Activit
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(w: Int, h: Int, init: android.widget.RadioGroup.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(w: Int = FILL_PARENT, h: Int = WRAP_CONTENT, init: android.widget.RadioGroup.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.RadioGroup.LayoutParams(w, h)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(w: Int, h: Int, initWeight: Float, init: android.widget.RadioGroup.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(w: Int = FILL_PARENT, h: Int = WRAP_CONTENT, initWeight: Float, init: android.widget.RadioGroup.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.RadioGroup.LayoutParams(w, h, initWeight)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -473,7 +474,7 @@ class _ViewSwitcher(viewGroup: android.widget.ViewSwitcher, ctx: android.app.Act
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
         val lp = android.view.ViewGroup.LayoutParams(width, height)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -503,7 +504,7 @@ class _GridView(viewGroup: android.widget.GridView, ctx: android.app.Activity): 
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
         val lp = android.view.ViewGroup.LayoutParams(width, height)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -529,7 +530,7 @@ class _Gallery(viewGroup: android.widget.Gallery, ctx: android.app.Activity): _C
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(w: Int, h: Int, init: android.widget.Gallery.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(w: Int = FILL_PARENT, h: Int = WRAP_CONTENT, init: android.widget.Gallery.LayoutParams.() -> Unit = { }) {
         val lp = android.widget.Gallery.LayoutParams(w, h)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
@@ -559,7 +560,7 @@ class _TextSwitcher(viewGroup: android.widget.TextSwitcher, ctx: android.app.Act
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(width: Int, height: Int, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, height: Int = WRAP_CONTENT, init: android.view.ViewGroup.LayoutParams.() -> Unit = { }) {
         val lp = android.view.ViewGroup.LayoutParams(width, height)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
