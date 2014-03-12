@@ -36,7 +36,7 @@ class SettingsUI(val act: android.app.Activity) {
                     textView(text = "Connection") {
                         setPadding(0,0,10,0)
                         gravity = RIGHT or CENTER_VERTICAL
-                        layoutParams(WRAP_CONTENT, WRAP_CONTENT)
+                        layoutParams(WRAP_CONTENT)
                     }
                     horizontal {
                         buttonGO = button(text = "Connect") {
@@ -53,7 +53,7 @@ class SettingsUI(val act: android.app.Activity) {
                 }
                 scrollView {
                     viewGroup.setVerticalScrollBarEnabled(true)
-                    viewGroup.layoutParams(FILL_PARENT, FILL_PARENT)
+                    viewGroup.layoutParams(height = FILL_PARENT)
                     vertical {
                         viewGroup.setPadding(10,10,10,10)
                         tableLayout {
@@ -78,14 +78,14 @@ class SettingsUI(val act: android.app.Activity) {
                                 textPASSWORD = editText {
                                     setSingleLine()
                                     setTransformationMethod(android.text.method.PasswordTransformationMethod.getInstance());
-                                    layoutParams{
+                                    layoutParams {
                                         weight = 3.0f
                                     }
                                 }
                             }
                             tableRow {
                                 checkboxKeepPassword = checkBox(text = "Keep") {
-                                    layoutParams(WRAP_CONTENT, WRAP_CONTENT) {
+                                    layoutParams(width = WRAP_CONTENT) {
                                         gravity = RIGHT
                                     }
                                 }
@@ -106,7 +106,6 @@ class SettingsUI(val act: android.app.Activity) {
                             tableRow {
                                 textView(text = "Port") {
                                     gravity = RIGHT or CENTER_VERTICAL
-                                    layoutParams
                                     setPadding(0,0,10,0)
                                 }
                                 textPORT = editText {
@@ -132,49 +131,49 @@ class SettingsUI(val act: android.app.Activity) {
                             }
                         }
                         textView(text = "Color fmt") {
-                            layoutParams(WRAP_CONTENT, WRAP_CONTENT){
+                            layoutParams(WRAP_CONTENT) {
                                 gravity = LEFT or CENTER_VERTICAL
                             }
                         }
                         colorformat = spinner {}.viewGroup
                         checkboxUseLocalCursor = checkBox(text = "Local mouse pointer") {
                             gravity = LEFT or CENTER_VERTICAL
-                            layoutParams(WRAP_CONTENT, WRAP_CONTENT)
+                            layoutParams(WRAP_CONTENT)
                         }
                         vertical {
                             viewGroup.setPadding(10,10,10,10)
                             textView(text = "Force full screen") {
-                                layoutParams(WRAP_CONTENT, WRAP_CONTENT)
+                                layoutParams(WRAP_CONTENT)
                             }
                             groupForceFullScreen = radioGroup {
                                 viewGroup.setOrientation(HORIZONTAL)
                                 radioForceFullScreenAuto = radioButton {
                                     setId(R.id.radioForceFullScreenAuto)
                                     text = "Auto"
-                                    layoutParams(WRAP_CONTENT, WRAP_CONTENT)
+                                    layoutParams(WRAP_CONTENT)
                                 }
                                 radioForceFullScreenOn = radioButton {
                                     setId(R.id.radioForceFullScreenOn)
                                     text = "On"
-                                    layoutParams(WRAP_CONTENT, WRAP_CONTENT)
+                                    layoutParams(WRAP_CONTENT)
                                 }
                                 radioForceFullScreenOff = radioButton {
                                     setId(R.id.radioForceFullScreenOff)
                                     text = "Off"
-                                    layoutParams(WRAP_CONTENT, WRAP_CONTENT)
+                                    layoutParams(WRAP_CONTENT)
                                 }
                             }.viewGroup
                         }
                         horizontal {
                             buttonRepeater = button(text = "Repeater") {
-                                layoutParams(WRAP_CONTENT, WRAP_CONTENT)
+                                layoutParams(WRAP_CONTENT)
                             }
                             textRepeaterId = textView(text = "No repeater") {
                                 gravity = LEFT or CENTER_VERTICAL
                             }
                         }
                         buttonImportExport = button(text = "Import/Export Settings") {
-                            layoutParams(WRAP_CONTENT, WRAP_CONTENT)
+                            layoutParams(WRAP_CONTENT)
                         }
                     }
                 }
