@@ -2,6 +2,7 @@ package com.example.adsl
 
 import android.view.ContextMenu
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.*
 import android.content.Context
 import android.widget.*
 import android.app.AlertDialog
@@ -11,6 +12,7 @@ import android.view.View
 
 import java.util.HashMap
 import java.util.ArrayList
+
 open class _Container<out T: android.view.ViewGroup>(open val viewGroup: T,
                  open val ctx: android.app.Activity) {
 
@@ -680,6 +682,22 @@ open class _Container<out T: android.view.ViewGroup>(open val viewGroup: T,
         v.listenerMap.clear()
         v.listenerLambdasMap.clear()
         return v
+    }
+
+    fun vertical(width: Int = MATCH_PARENT, height: Int = WRAP_CONTENT, init: _LinearLayout.() -> Unit): _LinearLayout {
+        return linearLayout {
+            init()
+            viewGroup.layoutParams(width, height)
+            orientation = LinearLayout.VERTICAL
+        }
+    }
+
+    fun horizontal(width: Int = MATCH_PARENT, height: Int = WRAP_CONTENT, init: _LinearLayout.() -> Unit): _LinearLayout {
+        return linearLayout {
+            init()
+            viewGroup.layoutParams(width, height)
+            orientation = LinearLayout.HORIZONTAL
+        }
     }
 
     //container function

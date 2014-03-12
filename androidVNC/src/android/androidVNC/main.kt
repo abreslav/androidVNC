@@ -30,21 +30,15 @@ class SettingsUI(val act: android.app.Activity) {
 
     ;{
         act.UI {
-            linearLayout {
-                orientation = VERTICAL
+            vertical {
                 viewGroup.setPadding(10,10,10,10)
-                viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
-                linearLayout {
-                    orientation = VERTICAL
-                    viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
+                vertical {
                     textView(text = "Connection") {
                         setPadding(0,0,10,0)
                         gravity = RIGHT or CENTER_VERTICAL
                         layoutParams(WRAP_CONTENT, WRAP_CONTENT)
                     }
-                    linearLayout {
-                        orientation = HORIZONTAL
-                        viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
+                    horizontal {
                         buttonGO = button(text = "Connect") {
                             layoutParams(FILL_PARENT, WRAP_CONTENT) {
                                 weight = 3.0f
@@ -60,10 +54,8 @@ class SettingsUI(val act: android.app.Activity) {
                 scrollView {
                     viewGroup.setVerticalScrollBarEnabled(true)
                     viewGroup.layoutParams(FILL_PARENT, FILL_PARENT)
-                    linearLayout {
-                        orientation = VERTICAL
+                    vertical {
                         viewGroup.setPadding(10,10,10,10)
-                        viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
                         tableLayout {
                             viewGroup.setPadding(10,10,10,10)
                             viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
@@ -156,10 +148,8 @@ class SettingsUI(val act: android.app.Activity) {
                             gravity = LEFT or CENTER_VERTICAL
                             layoutParams(WRAP_CONTENT, WRAP_CONTENT)
                         }
-                        linearLayout {
+                        vertical {
                             viewGroup.setPadding(10,10,10,10)
-                            viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
-                            orientation = VERTICAL
                             textView(text = "Force full screen") {
                                 layoutParams(WRAP_CONTENT, WRAP_CONTENT)
                             }
@@ -185,9 +175,7 @@ class SettingsUI(val act: android.app.Activity) {
                                 }
                             }.viewGroup
                         }
-                        linearLayout {
-                            orientation = HORIZONTAL
-                            viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
+                        horizontal {
                             buttonRepeater = button(text = "Repeater") {
                                 layoutParams(WRAP_CONTENT, WRAP_CONTENT)
                             }

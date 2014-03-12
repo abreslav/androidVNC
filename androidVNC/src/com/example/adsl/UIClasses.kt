@@ -1,12 +1,8 @@
 package com.example.adsl
 
-import android.view.ContextMenu
-import android.view.ViewGroup
-import android.content.Context
 import android.widget.*
-import android.app.AlertDialog
-import android.widget.LinearLayout.LayoutParams
-import android.view.View 
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 
 
 fun android.app.Activity.fragmentBreadCrumbs(init: _FragmentBreadCrumbs.() -> Unit) {
@@ -45,6 +41,23 @@ fun android.app.Activity.linearLayout(init: _LinearLayout.() -> Unit) {
     val v = layout.viewGroup.getChildCount()
     setContentView(layout.viewGroup)
 }
+
+fun android.app.Activity.vertical(width: Int = MATCH_PARENT, height: Int = WRAP_CONTENT, init: _LinearLayout.() -> Unit) {
+    linearLayout {
+        init()
+        viewGroup.layoutParams(width, height)
+        orientation = LinearLayout.VERTICAL
+    }
+}
+
+fun android.app.Activity.horizontal(width: Int = MATCH_PARENT, height: Int = WRAP_CONTENT, init: _LinearLayout.() -> Unit) {
+    linearLayout {
+        init()
+        viewGroup.layoutParams(width, height)
+        orientation = LinearLayout.HORIZONTAL
+    }
+}
+
 
 fun android.app.Activity.gridLayout(init: _GridLayout.() -> Unit) {
     val layout = _GridLayout(android.widget.GridLayout(this), this)
