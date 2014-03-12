@@ -9,25 +9,25 @@ import android.text.method.PasswordTransformationMethod
 
 class SettingsUI(val act: android.app.Activity) {
 
-    var buttonGO: Button by Delegates.notNull()
-    var spinnerConnection: Spinner by Delegates.notNull()
-    var textNickname: EditText by Delegates.notNull()
-    var textPASSWORD: EditText by Delegates.notNull()
-    var checkboxKeepPassword: CheckBox by Delegates.notNull()
-    var textIP: EditText by Delegates.notNull()
-    var textPORT: EditText by Delegates.notNull()
-    var textUsername: EditText by Delegates.notNull()
-    var colorformat: Spinner by Delegates.notNull()
-    var checkboxUseLocalCursor: CheckBox by Delegates.notNull()
-    var groupForceFullScreen: RadioGroup by Delegates.notNull()
-    var radioForceFullScreenAuto: RadioButton by Delegates.notNull()
-    var radioForceFullScreenOn: RadioButton by Delegates.notNull()
-    var radioForceFullScreenOff: RadioButton by Delegates.notNull()
-    var buttonRepeater: Button by Delegates.notNull()
-    var textRepeaterId: TextView by Delegates.notNull()
-    var buttonImportExport: Button by Delegates.notNull()
+    var go: Button by Delegates.notNull()
+    var connection: Spinner by Delegates.notNull()
+    var nickname: EditText by Delegates.notNull()
+    var password: EditText by Delegates.notNull()
+    var keepPassword: CheckBox by Delegates.notNull()
+    var ip: EditText by Delegates.notNull()
+    var port: EditText by Delegates.notNull()
+    var username: EditText by Delegates.notNull()
+    var colorFormat: Spinner by Delegates.notNull()
+    var useLocalCursor: CheckBox by Delegates.notNull()
+    var forceFullScreenGroup: RadioGroup by Delegates.notNull()
+    var forceFullScreenAuto: RadioButton by Delegates.notNull()
+    var forceFullScreenOn: RadioButton by Delegates.notNull()
+    var forceFullScreenOff: RadioButton by Delegates.notNull()
+    var repeater: Button by Delegates.notNull()
+    var repeaterId: TextView by Delegates.notNull()
+    var importExport: Button by Delegates.notNull();
 
-    ;{
+    {
         act.UI {
             vertical {
                 viewGroup.setPadding(10,10,10,10)
@@ -38,12 +38,12 @@ class SettingsUI(val act: android.app.Activity) {
                         layoutParams(WRAP_CONTENT)
                     }
                     horizontal {
-                        buttonGO = button(text = "Connect") {
+                        go = button(text = "Connect") {
                             layoutParams {
                                 weight = 3.0f
                             }
                         }
-                        spinnerConnection = spinner {
+                        connection = spinner {
                             viewGroup.layoutParams {
                                 weight = 1.0f
                             }
@@ -62,7 +62,7 @@ class SettingsUI(val act: android.app.Activity) {
                                     gravity = RIGHT or CENTER_VERTICAL
                                     setPadding(0,0,10,0)
                                 }
-                                textNickname = editText {
+                                nickname = editText {
                                     setSingleLine()
                                     layoutParams {
                                         weight = 1.0f
@@ -74,7 +74,7 @@ class SettingsUI(val act: android.app.Activity) {
                                     gravity = RIGHT or CENTER_VERTICAL
                                     setPadding(0,0,10,0)
                                 }
-                                textPASSWORD = editText {
+                                password = editText {
                                     setSingleLine()
                                     setTransformationMethod(PasswordTransformationMethod.getInstance());
                                     layoutParams {
@@ -83,7 +83,7 @@ class SettingsUI(val act: android.app.Activity) {
                                 }
                             }
                             tableRow {
-                                checkboxKeepPassword = checkBox(text = "Keep") {
+                                keepPassword = checkBox(text = "Keep") {
                                     layoutParams(width = WRAP_CONTENT)
                                 }
                             }
@@ -93,7 +93,7 @@ class SettingsUI(val act: android.app.Activity) {
                                     gravity = RIGHT or CENTER_VERTICAL
                                     setPadding(0,0,10,0)
                                 }
-                                textIP = editText {
+                                ip = editText {
                                     setSingleLine()
                                     layoutParams {
                                         weight = 1.0f
@@ -105,7 +105,7 @@ class SettingsUI(val act: android.app.Activity) {
                                     gravity = RIGHT or CENTER_VERTICAL
                                     setPadding(0,0,10,0)
                                 }
-                                textPORT = editText {
+                                port = editText {
                                     setText("5900")
                                     setSingleLine()
                                     layoutParams {
@@ -118,7 +118,7 @@ class SettingsUI(val act: android.app.Activity) {
                                     gravity = RIGHT or CENTER_VERTICAL
                                     setPadding(0,0,10,0)
                                 }
-                                textUsername = editText {
+                                username = editText {
                                     hint = "For windows auth"
                                     setSingleLine()
                                     layoutParams{
@@ -132,8 +132,8 @@ class SettingsUI(val act: android.app.Activity) {
                                 gravity = LEFT or CENTER_VERTICAL
                             }
                         }
-                        colorformat = spinner {}.viewGroup
-                        checkboxUseLocalCursor = checkBox(text = "Local mouse pointer") {
+                        colorFormat = spinner {}.viewGroup
+                        useLocalCursor = checkBox(text = "Local mouse pointer") {
                             gravity = LEFT or CENTER_VERTICAL
                             layoutParams(WRAP_CONTENT)
                         }
@@ -142,19 +142,19 @@ class SettingsUI(val act: android.app.Activity) {
                             textView(text = "Force full screen") {
                                 layoutParams(WRAP_CONTENT)
                             }
-                            groupForceFullScreen = radioGroup {
+                            forceFullScreenGroup = radioGroup {
                                 viewGroup.setOrientation(HORIZONTAL)
-                                radioForceFullScreenAuto = radioButton {
+                                forceFullScreenAuto = radioButton {
                                     setId(R.id.radioForceFullScreenAuto)
                                     text = "Auto"
                                     layoutParams(WRAP_CONTENT)
                                 }
-                                radioForceFullScreenOn = radioButton {
+                                forceFullScreenOn = radioButton {
                                     setId(R.id.radioForceFullScreenOn)
                                     text = "On"
                                     layoutParams(WRAP_CONTENT)
                                 }
-                                radioForceFullScreenOff = radioButton {
+                                forceFullScreenOff = radioButton {
                                     setId(R.id.radioForceFullScreenOff)
                                     text = "Off"
                                     layoutParams(WRAP_CONTENT)
@@ -162,14 +162,14 @@ class SettingsUI(val act: android.app.Activity) {
                             }.viewGroup
                         }
                         horizontal {
-                            buttonRepeater = button(text = "Repeater") {
+                            repeater = button(text = "Repeater") {
                                 layoutParams(WRAP_CONTENT)
                             }
-                            textRepeaterId = textView(text = "No repeater") {
+                            repeaterId = textView(text = "No repeater") {
                                 gravity = LEFT or CENTER_VERTICAL
                             }
                         }
-                        buttonImportExport = button(text = "Import/Export Settings") {
+                        importExport = button(text = "Import/Export Settings") {
                             layoutParams(WRAP_CONTENT)
                         }
                     }

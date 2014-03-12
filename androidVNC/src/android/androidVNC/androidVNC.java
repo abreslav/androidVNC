@@ -72,34 +72,34 @@ public class androidVNC extends Activity {
         ui = new SettingsUI(this);
 
 
-        ipText = ui.getTextIP();
-		portText = ui.getTextPORT();
-		passwordText = ui.getTextPASSWORD();
-		textNickname = ui.getTextNickname();
-		textUsername = ui.getTextUsername();
-		goButton = ui.getButtonGO();
-		ui.getButtonRepeater().setOnClickListener(new View.OnClickListener() {
+        ipText = ui.getIp();
+		portText = ui.getPort();
+		passwordText = ui.getPassword();
+		textNickname = ui.getNickname();
+		textUsername = ui.getUsername();
+		goButton = ui.getGo();
+		ui.getRepeater().setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 showDialog(R.layout.repeater_dialog);
             }
         });
-		ui.getButtonImportExport().setOnClickListener(new View.OnClickListener() {
+		ui.getImportExport().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDialog(R.layout.importexport);
             }
         });
-		colorSpinner = ui.getColorformat();
+		colorSpinner = ui.getColorFormat();
 		COLORMODEL[] models=COLORMODEL.values();
 		ArrayAdapter<COLORMODEL> colorSpinnerAdapter = new ArrayAdapter<COLORMODEL>(this, android.R.layout.simple_spinner_item, models);
-		groupForceFullScreen = ui.getGroupForceFullScreen();
-		checkboxKeepPassword = ui.getCheckboxKeepPassword();
-		checkboxLocalCursor = ui.getCheckboxUseLocalCursor();
+		groupForceFullScreen = ui.getForceFullScreenGroup();
+		checkboxKeepPassword = ui.getKeepPassword();
+		checkboxLocalCursor = ui.getUseLocalCursor();
 		colorSpinner.setAdapter(colorSpinnerAdapter);
 		colorSpinner.setSelection(0);
-		spinnerConnection = ui.getSpinnerConnection();
+		spinnerConnection = ui.getConnection();
 		spinnerConnection.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> ad, View view, int itemIndex, long id) {
@@ -126,7 +126,7 @@ public class androidVNC extends Activity {
 			}
 
 		});
-		repeaterText = ui.getTextRepeaterId();
+		repeaterText = ui.getRepeaterId();
 		goButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
