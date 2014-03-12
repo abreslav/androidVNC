@@ -33,12 +33,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,38 +41,19 @@ import java.util.Collections;
 public class androidVNC extends Activity {
     private SettingsUI ui;
 
-	private EditText ipText;
-	private EditText portText;
-	private EditText passwordText;
-	private Button goButton;
-	private TextView repeaterText;
-	private RadioGroup groupForceFullScreen;
-	private Spinner colorSpinner;
-	private Spinner spinnerConnection;
-	private VncDatabase database;
+    private VncDatabase database;
 	private ConnectionBean selected;
-	private EditText textNickname;
-	private EditText textUsername;
-	private CheckBox checkboxKeepPassword;
-	private CheckBox checkboxLocalCursor;
-	private boolean repeaterTextSet;
+    private boolean repeaterTextSet;
 
 	@Override
 	public void onCreate(Bundle icicle) {
 
 		super.onCreate(icicle);
-//		setContentView(R.layout.main);
 
         ui = new SettingsUI(this);
 
 
-        ipText = ui.getIp();
-		portText = ui.getPort();
-		passwordText = ui.getPassword();
-		textNickname = ui.getNickname();
-		textUsername = ui.getUsername();
-		goButton = ui.getGo();
-		ui.getRepeater().setOnClickListener(new View.OnClickListener() {
+        ui.getRepeater().setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -91,48 +66,43 @@ public class androidVNC extends Activity {
                 showDialog(R.layout.importexport);
             }
         });
-		colorSpinner = ui.getColorFormat();
-		COLORMODEL[] models=COLORMODEL.values();
+        COLORMODEL[] models=COLORMODEL.values();
 		ArrayAdapter<COLORMODEL> colorSpinnerAdapter = new ArrayAdapter<COLORMODEL>(this, android.R.layout.simple_spinner_item, models);
-		groupForceFullScreen = ui.getForceFullScreenGroup();
-		checkboxKeepPassword = ui.getKeepPassword();
-		checkboxLocalCursor = ui.getUseLocalCursor();
-		colorSpinner.setAdapter(colorSpinnerAdapter);
-		colorSpinner.setSelection(0);
-		spinnerConnection = ui.getConnection();
-		spinnerConnection.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-			@Override
-			public void onItemSelected(AdapterView<?> ad, View view, int itemIndex, long id) {
-				selected = (ConnectionBean)ad.getSelectedItem();
-				updateViewFromSelected();
-			}
-			@Override
-			public void onNothingSelected(AdapterView<?> ad) {
-				selected = null;
-			}
-		});
-		spinnerConnection.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        ui.getColorFormat().setAdapter(colorSpinnerAdapter);
+		ui.getColorFormat().setSelection(0);
+        ui.getConnection().setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> ad, View view, int itemIndex, long id) {
+                selected = (ConnectionBean) ad.getSelectedItem();
+                updateViewFromSelected();
+            }
 
-			/* (non-Javadoc)
-			 * @see android.widget.AdapterView.OnItemLongClickListener#onItemLongClick(android.widget.AdapterView, android.view.View, int, long)
-			 */
-			@Override
-			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
-				spinnerConnection.setSelection(arg2);
-				selected = (ConnectionBean)spinnerConnection.getItemAtPosition(arg2);
-				canvasStart();
-				return true;
-			}
+            @Override
+            public void onNothingSelected(AdapterView<?> ad) {
+                selected = null;
+            }
+        });
+		ui.getConnection().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
-		});
-		repeaterText = ui.getRepeaterId();
-		goButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				canvasStart();
-			}
-		});
+            /* (non-Javadoc)
+             * @see android.widget.AdapterView.OnItemLongClickListener#onItemLongClick(android.widget.AdapterView, android.view.View, int, long)
+             */
+            @Override
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+                                           int arg2, long arg3) {
+                ui.getConnection().setSelection(arg2);
+                selected = (ConnectionBean) ui.getConnection().getItemAtPosition(arg2);
+                canvasStart();
+                return true;
+            }
+
+        });
+        ui.getGo().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                canvasStart();
+            }
+        });
 		
 		database = new VncDatabase(this);
 	}
@@ -180,8 +150,8 @@ public class androidVNC extends Activity {
 		switch (item.getItemId())
 		{
 		case R.id.itemSaveAsCopy :
-			if (selected.getNickname().equals(textNickname.getText().toString()))
-				textNickname.setText("Copy of "+selected.getNickname());
+			if (selected.getNickname().equals(ui.getNickname().getText().toString()))
+				ui.getNickname().setText("Copy of " + selected.getNickname());
 			updateSelectedFromView();
 			selected.set_Id(0);
 			saveAndWriteRecent();
@@ -208,22 +178,22 @@ public class androidVNC extends Activity {
 	private void updateViewFromSelected() {
 		if (selected==null)
 			return;
-		ipText.setText(selected.getAddress());
-		portText.setText(Integer.toString(selected.getPort()));
+		ui.getIp().setText(selected.getAddress());
+		ui.getPort().setText(Integer.toString(selected.getPort()));
 		if (selected.getKeepPassword() || selected.getPassword().length()>0) {
-			passwordText.setText(selected.getPassword());
+			ui.getPassword().setText(selected.getPassword());
 		}
-		groupForceFullScreen.check(selected.getForceFull()==BitmapImplHint.AUTO ? R.id.radioForceFullScreenAuto : (selected.getForceFull() == BitmapImplHint.FULL ? R.id.radioForceFullScreenOn : R.id.radioForceFullScreenOff));
-		checkboxKeepPassword.setChecked(selected.getKeepPassword());
-		checkboxLocalCursor.setChecked(selected.getUseLocalCursor());
-		textNickname.setText(selected.getNickname());
-		textUsername.setText(selected.getUserName());
+		ui.getForceFullScreenGroup().check(selected.getForceFull() == BitmapImplHint.AUTO ? R.id.radioForceFullScreenAuto : (selected.getForceFull() == BitmapImplHint.FULL ? R.id.radioForceFullScreenOn : R.id.radioForceFullScreenOff));
+		ui.getKeepPassword().setChecked(selected.getKeepPassword());
+		ui.getUseLocalCursor().setChecked(selected.getUseLocalCursor());
+		ui.getNickname().setText(selected.getNickname());
+		ui.getUsername().setText(selected.getUserName());
 		COLORMODEL cm = COLORMODEL.valueOf(selected.getColorModel());
 		COLORMODEL[] colors=COLORMODEL.values();
 		for (int i=0; i<colors.length; ++i)
 		{
 			if (colors[i] == cm) {
-				colorSpinner.setSelection(i);
+				ui.getColorFormat().setSelection(i);
 				break;
 			}
 		}
@@ -239,12 +209,12 @@ public class androidVNC extends Activity {
 	{
 		if (useRepeater)
 		{
-			repeaterText.setText(repeaterId);
+			ui.getRepeaterId().setText(repeaterId);
 			repeaterTextSet = true;
 		}
 		else
 		{
-			repeaterText.setText(getText(R.string.repeater_empty_text));
+			ui.getRepeaterId().setText(getText(R.string.repeater_empty_text));
 			repeaterTextSet = false;
 		}
 	}
@@ -253,25 +223,25 @@ public class androidVNC extends Activity {
 		if (selected==null) {
 			return;
 		}
-		selected.setAddress(ipText.getText().toString());
+		selected.setAddress(ui.getIp().getText().toString());
 		try
 		{
-			selected.setPort(Integer.parseInt(portText.getText().toString()));
+			selected.setPort(Integer.parseInt(ui.getPort().getText().toString()));
 		}
 		catch (NumberFormatException nfe)
 		{
 			
 		}
-		selected.setNickname(textNickname.getText().toString());
-		selected.setUserName(textUsername.getText().toString());
-		selected.setForceFull(groupForceFullScreen.getCheckedRadioButtonId()==R.id.radioForceFullScreenAuto ? BitmapImplHint.AUTO : (groupForceFullScreen.getCheckedRadioButtonId()==R.id.radioForceFullScreenOn ? BitmapImplHint.FULL : BitmapImplHint.TILE));
-		selected.setPassword(passwordText.getText().toString());
-		selected.setKeepPassword(checkboxKeepPassword.isChecked());
-		selected.setUseLocalCursor(checkboxLocalCursor.isChecked());
-		selected.setColorModel(((COLORMODEL)colorSpinner.getSelectedItem()).nameString());
+		selected.setNickname(ui.getNickname().getText().toString());
+		selected.setUserName(ui.getUsername().getText().toString());
+		selected.setForceFull(ui.getForceFullScreenGroup().getCheckedRadioButtonId()==R.id.radioForceFullScreenAuto ? BitmapImplHint.AUTO : (ui.getForceFullScreenGroup().getCheckedRadioButtonId()==R.id.radioForceFullScreenOn ? BitmapImplHint.FULL : BitmapImplHint.TILE));
+		selected.setPassword(ui.getPassword().getText().toString());
+		selected.setKeepPassword(ui.getKeepPassword().isChecked());
+		selected.setUseLocalCursor(ui.getUseLocalCursor().isChecked());
+		selected.setColorModel(((COLORMODEL) ui.getColorFormat().getSelectedItem()).nameString());
 		if (repeaterTextSet)
 		{
-			selected.setRepeaterId(repeaterText.getText().toString());
+			selected.setRepeaterId(ui.getRepeaterId().getText().toString());
 			selected.setUseRepeater(true);
 		}
 		else
@@ -322,9 +292,9 @@ public class androidVNC extends Activity {
 				}
 			}
 		}
-		spinnerConnection.setAdapter(new ArrayAdapter<ConnectionBean>(this,android.R.layout.simple_spinner_item,
-				connections.toArray(new ConnectionBean[connections.size()])));
-		spinnerConnection.setSelection(connectionIndex,false);
+		ui.getConnection().setAdapter(new ArrayAdapter<ConnectionBean>(this, android.R.layout.simple_spinner_item,
+                connections.toArray(new ConnectionBean[connections.size()])));
+		ui.getConnection().setSelection(connectionIndex, false);
 		selected=connections.get(connectionIndex);
 		updateViewFromSelected();
 		IntroTextDialog.showIntroTextIfNecessary(this, database);
