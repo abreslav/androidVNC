@@ -2,11 +2,10 @@ package android.androidVNC;
 import android.view.ViewGroup.LayoutParams.*
 import android.widget.*
 import android.view.Gravity.*
-import android.widget.LinearLayout.VERTICAL
 import android.widget.LinearLayout.HORIZONTAL
 import com.example.adsl.*
 import kotlin.properties.Delegates
-import android.androidVNC.R
+import android.text.method.PasswordTransformationMethod
 
 class SettingsUI(val act: android.app.Activity) {
 
@@ -77,7 +76,7 @@ class SettingsUI(val act: android.app.Activity) {
                                 }
                                 textPASSWORD = editText {
                                     setSingleLine()
-                                    setTransformationMethod(android.text.method.PasswordTransformationMethod.getInstance());
+                                    setTransformationMethod(PasswordTransformationMethod.getInstance());
                                     layoutParams {
                                         weight = 3.0f
                                     }
@@ -85,9 +84,7 @@ class SettingsUI(val act: android.app.Activity) {
                             }
                             tableRow {
                                 checkboxKeepPassword = checkBox(text = "Keep") {
-                                    layoutParams(width = WRAP_CONTENT) {
-                                        gravity = RIGHT
-                                    }
+                                    layoutParams(width = WRAP_CONTENT)
                                 }
                             }
                             tableRow {

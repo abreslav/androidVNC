@@ -378,8 +378,8 @@ class _TableRow(viewGroup: android.widget.TableRow, ctx: android.app.Activity): 
         this@layoutParams.setLayoutParams(lp)
     }
 
-    fun android.view.View.layoutParams(w: Int = FILL_PARENT, h: Int = WRAP_CONTENT, init: android.widget.TableRow.LayoutParams.() -> Unit = { }) {
-        val lp = android.widget.TableRow.LayoutParams(w, h)
+    fun android.view.View.layoutParams(width: Int = FILL_PARENT, h: Int = WRAP_CONTENT, init: android.widget.TableRow.LayoutParams.() -> Unit = { }) {
+        val lp = android.widget.TableRow.LayoutParams(width, h)
         lp.init()
         this@layoutParams.setLayoutParams(lp)
     }
