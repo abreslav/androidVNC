@@ -35,32 +35,28 @@ class Foo(val act: android.app.Activity) {
                 viewGroup.setPadding(10,10,10,10)
                 viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
                 linearLayout {
-                    orientation = HORIZONTAL
+                    orientation = VERTICAL
                     viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
-                    linearLayout {
-                        orientation = VERTICAL
-                        viewGroup.layoutParams(WRAP_CONTENT, WRAP_CONTENT)
-                        textView(text = "Connection") {
-//                            textAppearance = ?android:attr/textAppearanceMedium
-                            setPadding(0,0,10,0)
-                            gravity = RIGHT or CENTER_VERTICAL
-                            layoutParams(WRAP_CONTENT, WRAP_CONTENT)
-                        }
-                        buttonGO = button(text = "Connect") {
-                            setId(R.id.buttonGO)
-//                            textAppearance = ?android:attr/textAppearanceMedium
-                            layoutParams(WRAP_CONTENT, WRAP_CONTENT)
-                        }
+                    textView(text = "Connection") {
+                        setPadding(0,0,10,0)
+                        gravity = RIGHT or CENTER_VERTICAL
+                        layoutParams(WRAP_CONTENT, WRAP_CONTENT)
                     }
-                    spinnerConnection = spinner {
-                        viewGroup.setId(R.id.spinnerConnection)
+                    linearLayout {
+                        orientation = HORIZONTAL
                         viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
-                    }.viewGroup
+                        buttonGO = button(text = "Connect") {
+                            layoutParams(FILL_PARENT, WRAP_CONTENT) {
+                                weight = 3.0f
+                            }
+                        }
+                        spinnerConnection = spinner {
+                            viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT) {
+                                weight = 1.0f
+                            }
+                        }.viewGroup
+                    }
                 }
-//                imageView {
-//                    src = @android:drawable/divider_horizontal_bright
-//                    layoutParams(WRAP_CONTENT, FILL_PARENT)
-//                }
                 scrollView {
                     viewGroup.setVerticalScrollBarEnabled(true)
                     viewGroup.layoutParams(FILL_PARENT, FILL_PARENT)
@@ -73,14 +69,12 @@ class Foo(val act: android.app.Activity) {
                             viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
                             tableRow {
                                 textView(text = "Nickname") {
-//                                    textAppearance = ?android:attr/textAppearanceMedium
                                     gravity = RIGHT or CENTER_VERTICAL
                                     layoutParams(FILL_PARENT, WRAP_CONTENT){
                                     }
                                     setPadding(0,0,10,0)
                                 }
                                 textNickname = editText {
-                                    setId(R.id.textNickname)
                                     setSingleLine()
                                     layoutParams(FILL_PARENT, WRAP_CONTENT) {
                                         weight = 1.0f
@@ -89,44 +83,33 @@ class Foo(val act: android.app.Activity) {
                             }
                             tableRow {
                                 textView(text = "Password") {
-//                                    textAppearance = ?android:attr/textAppearanceMedium
                                     gravity = RIGHT or CENTER_VERTICAL
                                     setPadding(0,0,10,0)
                                 }
-                                linearLayout {
-//                                    orientation = HORIZONTAL
-                                    textPASSWORD = editText {
-                                        setId(R.id.textPASSWORD)
-                                        setSingleLine()
-//                                        setTransformationMethod(android.text.method.PasswordTransformationMethod.getInstance());
-                                        layoutParams(FILL_PARENT, WRAP_CONTENT){
-                                            weight = 3.0f
-                                        }
-//                                        layoutParams(FILL_PARENT, MATCH_PARENT)
+                                textPASSWORD = editText {
+                                    setSingleLine()
+                                    setTransformationMethod(android.text.method.PasswordTransformationMethod.getInstance());
+                                    layoutParams(FILL_PARENT, WRAP_CONTENT){
+                                        weight = 3.0f
                                     }
-                                    checkboxKeepPassword = checkBox(text = "Keep") {
-                                        setId(R.id.checkboxKeepPassword)
-                                        layoutParams(FILL_PARENT, WRAP_CONTENT){
-                                            weight = 1.0f
-                                        }
+                                }
+                            }
+                            tableRow {
+                                checkboxKeepPassword = checkBox(text = "Keep") {
+                                    layoutParams(WRAP_CONTENT, WRAP_CONTENT) {
+                                        gravity = RIGHT
                                     }
-//                                    viewGroup.layoutParams(MATCH_PARENT, MATCH_PARENT){
-                                        //                                            weight = 1.0f
-//                                    }
-                                    viewGroup.setOrientation(HORIZONTAL)
                                 }
                             }
                             tableRow {
                                 textView(text = "Address") {
                                     hint = "localhost"
-//                                    textAppearance = ?android:attr/textAppearanceMedium
                                     gravity = RIGHT or CENTER_VERTICAL
                                     layoutParams(FILL_PARENT, WRAP_CONTENT) {
                                     }
                                     setPadding(0,0,10,0)
                                 }
                                 textIP = editText {
-                                    setId(R.id.textIP)
                                     setSingleLine()
                                     layoutParams(FILL_PARENT, WRAP_CONTENT) {
                                         weight = 1.0f
@@ -135,14 +118,12 @@ class Foo(val act: android.app.Activity) {
                             }
                             tableRow {
                                 textView(text = "Port") {
-//                                    textAppearance = ?android:attr/textAppearanceMedium
                                     gravity = RIGHT or CENTER_VERTICAL
                                     layoutParams(FILL_PARENT, WRAP_CONTENT) {
                                     }
                                     setPadding(0,0,10,0)
                                 }
                                 textPORT = editText {
-                                    setId(R.id.textPORT)
                                     setText("5900")
                                     setSingleLine()
                                     layoutParams(FILL_PARENT, WRAP_CONTENT){
@@ -152,14 +133,11 @@ class Foo(val act: android.app.Activity) {
                             }
                             tableRow {
                                 textView(text = "Username") {
-//                                    textAppearance = ?android:attr/textAppearanceMedium
                                     gravity = RIGHT or CENTER_VERTICAL
-                                    layoutParams(FILL_PARENT, WRAP_CONTENT) {
-                                    }
+                                    layoutParams(FILL_PARENT, WRAP_CONTENT)
                                     setPadding(0,0,10,0)
                                 }
                                 textUsername = editText {
-                                    setId(R.id.textUsername)
                                     hint = "For windows auth"
                                     setSingleLine()
                                     layoutParams(FILL_PARENT, WRAP_CONTENT){
@@ -169,29 +147,25 @@ class Foo(val act: android.app.Activity) {
                             }
                         }
                         textView(text = "Color fmt") {
-//                            textAppearance = ?android:attr/textAppearanceMedium
                             layoutParams(WRAP_CONTENT, WRAP_CONTENT){
                                 gravity = LEFT or CENTER_VERTICAL
                             }
                         }
                         colorformat = spinner {
-                            viewGroup.setId(R.id.colorformat)
                             viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
                         }.viewGroup
                         checkboxUseLocalCursor = checkBox(text = "Local mouse pointer") {
-                            setId(R.id.checkboxUseLocalCursor)
                             gravity = LEFT or CENTER_VERTICAL
                             layoutParams(WRAP_CONTENT, WRAP_CONTENT) { }
                         }
                         linearLayout {
-                            orientation = HORIZONTAL
                             viewGroup.setPadding(10,10,10,10)
                             viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
-                            textView(text = "Forece full screen") {
+                            orientation = VERTICAL
+                            textView(text = "Force full screen") {
                                 layoutParams(WRAP_CONTENT, WRAP_CONTENT)
                             }
                             groupForceFullScreen = radioGroup {
-                                viewGroup.setId(R.id.groupForceFullScreen)
                                 viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT) {
 //                                    orientation = HORIZONTAL
                                 }
@@ -217,18 +191,15 @@ class Foo(val act: android.app.Activity) {
                             orientation = HORIZONTAL
                             viewGroup.layoutParams(FILL_PARENT, WRAP_CONTENT)
                             buttonRepeater = button(text = "Repeater") {
-                                setId(R.id.buttonRepeater)
                                 layoutParams(WRAP_CONTENT, WRAP_CONTENT)
                             }
                             textRepeaterId = textView(text = "No repeater") {
-                                setId(R.id.textRepeaterId)
                                 gravity = LEFT or CENTER_VERTICAL
                                 layoutParams(FILL_PARENT, WRAP_CONTENT) {
                                 }
                             }
                         }
                         buttonImportExport = button(text = "Import/Export Settings") {
-                            setId(R.id.buttonImportExport)
                             layoutParams(WRAP_CONTENT, WRAP_CONTENT)
                         }
                     }
