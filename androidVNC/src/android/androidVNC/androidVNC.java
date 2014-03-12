@@ -45,7 +45,7 @@ import java.util.Collections;
 
 
 public class androidVNC extends Activity {
-    private Foo foo;
+    private SettingsUI ui;
 
 	private EditText ipText;
 	private EditText portText;
@@ -69,37 +69,37 @@ public class androidVNC extends Activity {
 		super.onCreate(icicle);
 //		setContentView(R.layout.main);
 
-        foo = new Foo(this);
+        ui = new SettingsUI(this);
 
 
-        ipText = foo.getTextIP();
-		portText = foo.getTextPORT();
-		passwordText = foo.getTextPASSWORD();
-		textNickname = foo.getTextNickname();
-		textUsername = foo.getTextUsername();
-		goButton = foo.getButtonGO();
-		foo.getButtonRepeater().setOnClickListener(new View.OnClickListener() {
+        ipText = ui.getTextIP();
+		portText = ui.getTextPORT();
+		passwordText = ui.getTextPASSWORD();
+		textNickname = ui.getTextNickname();
+		textUsername = ui.getTextUsername();
+		goButton = ui.getButtonGO();
+		ui.getButtonRepeater().setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 showDialog(R.layout.repeater_dialog);
             }
         });
-		foo.getButtonImportExport().setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				showDialog(R.layout.importexport);
-			}
-		});
-		colorSpinner = foo.getColorformat();
+		ui.getButtonImportExport().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog(R.layout.importexport);
+            }
+        });
+		colorSpinner = ui.getColorformat();
 		COLORMODEL[] models=COLORMODEL.values();
 		ArrayAdapter<COLORMODEL> colorSpinnerAdapter = new ArrayAdapter<COLORMODEL>(this, android.R.layout.simple_spinner_item, models);
-		groupForceFullScreen = foo.getGroupForceFullScreen();
-		checkboxKeepPassword = foo.getCheckboxKeepPassword();
-		checkboxLocalCursor = foo.getCheckboxUseLocalCursor();
+		groupForceFullScreen = ui.getGroupForceFullScreen();
+		checkboxKeepPassword = ui.getCheckboxKeepPassword();
+		checkboxLocalCursor = ui.getCheckboxUseLocalCursor();
 		colorSpinner.setAdapter(colorSpinnerAdapter);
 		colorSpinner.setSelection(0);
-		spinnerConnection = foo.getSpinnerConnection();
+		spinnerConnection = ui.getSpinnerConnection();
 		spinnerConnection.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> ad, View view, int itemIndex, long id) {
@@ -126,7 +126,7 @@ public class androidVNC extends Activity {
 			}
 
 		});
-		repeaterText = foo.getTextRepeaterId();
+		repeaterText = ui.getTextRepeaterId();
 		goButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {

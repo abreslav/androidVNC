@@ -8,7 +8,7 @@ import com.example.adsl.*
 import kotlin.properties.Delegates
 import android.androidVNC.R
 
-class Foo(val act: android.app.Activity) {
+class SettingsUI(val act: android.app.Activity) {
 
     var buttonGO: Button by Delegates.notNull()
     var spinnerConnection: Spinner by Delegates.notNull()
@@ -105,8 +105,7 @@ class Foo(val act: android.app.Activity) {
                                 textView(text = "Address") {
                                     hint = "localhost"
                                     gravity = RIGHT or CENTER_VERTICAL
-                                    layoutParams(FILL_PARENT, WRAP_CONTENT) {
-                                    }
+                                    layoutParams(FILL_PARENT, WRAP_CONTENT)
                                     setPadding(0,0,10,0)
                                 }
                                 textIP = editText {
@@ -119,8 +118,7 @@ class Foo(val act: android.app.Activity) {
                             tableRow {
                                 textView(text = "Port") {
                                     gravity = RIGHT or CENTER_VERTICAL
-                                    layoutParams(FILL_PARENT, WRAP_CONTENT) {
-                                    }
+                                    layoutParams(FILL_PARENT, WRAP_CONTENT)
                                     setPadding(0,0,10,0)
                                 }
                                 textPORT = editText {
@@ -156,7 +154,7 @@ class Foo(val act: android.app.Activity) {
                         }.viewGroup
                         checkboxUseLocalCursor = checkBox(text = "Local mouse pointer") {
                             gravity = LEFT or CENTER_VERTICAL
-                            layoutParams(WRAP_CONTENT, WRAP_CONTENT) { }
+                            layoutParams(WRAP_CONTENT, WRAP_CONTENT)
                         }
                         linearLayout {
                             viewGroup.setPadding(10,10,10,10)
@@ -195,8 +193,7 @@ class Foo(val act: android.app.Activity) {
                             }
                             textRepeaterId = textView(text = "No repeater") {
                                 gravity = LEFT or CENTER_VERTICAL
-                                layoutParams(FILL_PARENT, WRAP_CONTENT) {
-                                }
+                                layoutParams(FILL_PARENT, WRAP_CONTENT)
                             }
                         }
                         buttonImportExport = button(text = "Import/Export Settings") {
