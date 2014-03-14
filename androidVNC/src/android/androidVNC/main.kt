@@ -144,20 +144,13 @@ class SettingsUI(val act: android.app.Activity) {
                             }
                             forceFullScreenGroup = radioGroup {
                                 viewGroup.setOrientation(HORIZONTAL)
-                                forceFullScreenAuto = radioButton {
-                                    setId(R.id.radioForceFullScreenAuto)
-                                    text = "Auto"
-                                    layoutParams(WRAP_CONTENT)
-                                }
-                                forceFullScreenOn = radioButton {
-                                    setId(R.id.radioForceFullScreenOn)
-                                    text = "On"
-                                    layoutParams(WRAP_CONTENT)
-                                }
-                                forceFullScreenOff = radioButton {
-                                    setId(R.id.radioForceFullScreenOff)
-                                    text = "Off"
-                                    layoutParams(WRAP_CONTENT)
+
+                                val labels = listOf("Auto", "On", "Off")
+                                for (label in labels) {
+                                    forceFullScreenAuto = radioButton {
+                                        text = label
+                                        layoutParams(WRAP_CONTENT)
+                                    }
                                 }
                             }.viewGroup
                         }
