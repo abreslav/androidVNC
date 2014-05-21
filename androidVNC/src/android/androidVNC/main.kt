@@ -6,6 +6,7 @@ import android.widget.LinearLayout.HORIZONTAL
 import com.example.adsl.*
 import kotlin.properties.Delegates
 import android.text.method.PasswordTransformationMethod
+import android.view.View
 
 class SettingsUI(val act: android.app.Activity) {
 
@@ -32,17 +33,24 @@ class SettingsUI(val act: android.app.Activity) {
             vertical {
                 viewGroup.setPadding(10,10,10,10)
                 vertical {
-                    textView(text = "Connection") {
-                        setPadding(0,0,10,0)
-                        gravity = RIGHT or CENTER_VERTICAL
-                        layoutParams(WRAP_CONTENT)
+
+                    fun foo(): View {
+                        return textView(text = "Connection") {
+                            setPadding(0, 0, 10, 0)
+                            gravity = RIGHT or CENTER_VERTICAL
+                            layoutParams(WRAP_CONTENT)
+                        }
                     }
                     horizontal {
                         go = button(text = "Connect") {
                             layoutParams {
                                 weight = 3.0f
                             }
+                            onClick {
+                                // do that stuff
+                            }
                         }
+
                         connection = spinner {
                             viewGroup.layoutParams {
                                 weight = 1.0f
@@ -147,7 +155,7 @@ class SettingsUI(val act: android.app.Activity) {
 
                                 val labels = listOf("Auto", "On", "Off")
                                 for (label in labels) {
-                                    forceFullScreenAuto = radioButton {
+                                    radioButton {
                                         text = label
                                         layoutParams(WRAP_CONTENT)
                                     }
